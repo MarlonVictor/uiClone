@@ -40,8 +40,8 @@ export const Avatar = styled.img`
     border-radius: 50%;
 
     @media (min-width: 768px) {
-        width: 90%;
-        margin-top: -34px;
+        width: 95%;
+        margin-top: -90px;
     }
 `
 

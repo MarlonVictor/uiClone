@@ -2,12 +2,30 @@ import React from 'react';
 
 import ProfileData from '../../components/ProfileData';
 import RepoCard from '../../components/RepoCard';
+import RandomCalendar from '../../components/RandomCalendar';
 
-import { Container, Main, LeftSide, RightSide, Repos } from './styles';
+import { Container, Main, LeftSide, RightSide, Repos, CalendarHeading, RepoIcon, Tab } from './styles';
 
 const Profile = () => {
+  const TabContent = () => (
+    <div className="content">
+      <RepoIcon/>
+      <span className="label">Repositories</span>
+      <span className="number">12</span>
+    </div>
+  )
+
   return (
     <Container>
+      <Tab className="desktop">
+        <div className="wrapper">
+          <span className="offset"/>
+          <TabContent/>
+        </div>
+
+        <span className="line"></span>
+      </Tab>
+
       <Main>
         <LeftSide>
           <ProfileData 
@@ -24,6 +42,10 @@ const Profile = () => {
         </LeftSide>
         
         <RightSide>
+          <Tab className="mobile">
+            <TabContent/>
+            <span className="line"></span>
+          </Tab>
           <Repos>
             <h2>Random repos</h2>
 
@@ -41,6 +63,12 @@ const Profile = () => {
               ))}
             </div>
           </Repos>
+
+          <CalendarHeading>
+            Random calendar (do not represent actual data)
+          </CalendarHeading>
+
+          <RandomCalendar/>
         </RightSide>
       </Main>
     </Container>
