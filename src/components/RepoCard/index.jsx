@@ -3,14 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Container, Topside, RepoIcon, Botside, StarIcon, ForkIcon } from './styles';
 
-const RepoCard = ({
-  username,
-  reponame,
-  description,
-  language,
-  stars,
-  forks
-}) => {
+const RepoCard = ({ username, reponame, description, language, stars, forks }) => {
   const languageClass = language ? language.toLowerCase() : 'other'
 
   return (

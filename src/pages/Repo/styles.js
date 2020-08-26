@@ -39,7 +39,7 @@ export const Container = styled.div`
 
 export const BgBlock = styled.div`
     @media (min-width: 768px) {
-        background: #FAFBFC;
+        background: var(--bgBlock);
         padding: 16px 0 40px 20px;
         border-bottom: 1px solid var(--border);
     }

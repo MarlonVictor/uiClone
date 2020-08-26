@@ -1,7 +1,8 @@
 import 'react-calendar-heatmap/dist/styles.css';
 
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,22 +10,28 @@ import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import Repo from './pages/Repo';
 
+import { themes } from './styles/themes';
 import GlobalStyle from './styles/GlobalStyles';
 
 const App = () => {
+  const [themeName, setThemeName] = useState('light')
+  const currentTheme = themes[themeName]
+
   return (
-    <BrowserRouter>
-      <Header/>
+    <ThemeProvider theme={currentTheme}>
+      <BrowserRouter>
+        <Header themeName={themeName} setThemeName={setThemeName}/>
 
-      <Switch>
-        <Route path="/" component={Profile} />
-        <Route path="/:username" component={Profile} />
-        <Route path="/:username/:reponame" component={Repo} />
-      </Switch>
+        <Routes>
+          <Route path="/" element={<Profile/>}/>
+          <Route path="/:username" element={<Profile/>} />
+          <Route path="/:username/:reponame" element={<Repo/>} />
+        </Routes>
 
-      <Footer/>
-      <GlobalStyle/>
-    </BrowserRouter>
+        <Footer/>
+        <GlobalStyle/>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 };
 

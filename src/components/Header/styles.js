@@ -25,7 +25,7 @@ export const GithubLogo = styled(FaGithub)`
     }
 `
 
-export const SearchForm = styled.div`
+export const SearchForm = styled.form`
     padding-left: 16px;
 
     input {
@@ -65,7 +65,7 @@ export const Links = styled.span`
     padding-left: 10px;
 
     p {
-        color: var(--primary);
+        color: var(--logo);
         font-size: 14px;
         font-weight: 500;
 
@@ -95,9 +95,11 @@ const cssIcon = css`
     flex-shrink: 0;
     cursor: pointer;
 `
+
 export const MenuIcon = styled(AiOutlineMenu)`
     ${cssIcon}
 `
+
 export const MenuBell = styled(FaRegBell)`
     ${cssIcon}
 `

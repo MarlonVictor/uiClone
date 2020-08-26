@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
-import Media from 'react-media'
+import { useNavigate } from 'react-router-dom';
+import Media from 'react-media';
 
 import { Container, GithubLogo, SearchForm, Links, MenuIcon, MenuBell, Menu } from './styles'
 
-const Header = () => {
+const Header = ({ themeName, setThemeName }) => {
   const [ toggleMenu, setToggleMenu ] = useState(false)
+
+  const [search, setSearch] = useState('')
+  const navigate = useNavigate()
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    navigate('/' + search.toLowerCase().trim());
+  }
 
   function toggleMobileMenu() {
     setToggleMenu(!toggleMenu)
+  }
+
+  function toggleTheme() {
+    setThemeName(themeName === 'light' ? 'dark' : 'light');
   }
 
   return (
@@ -15,9 +29,13 @@ const Header = () => {
       {whatches => {
         return whatches ? (// Desktop
           <Container>
-            <GithubLogo/>
-            <SearchForm>
-              <input type="text" placeholder="Enter Username or Username/Repo..."/>
+            <GithubLogo onClick={toggleTheme}/>
+            <SearchForm onSubmit={handleSubmit}>
+              <input type="text" 
+                placeholder="Enter Username or Username/Repo..."
+                value={search}
+                onChange={(e) => setSearch(e.currentTarget.value)}
+              />
             </SearchForm>
             <Links>
               <p>Pull requests</p>
@@ -31,7 +49,7 @@ const Header = () => {
           <>
             <Container className="mobile">
               <MenuIcon onClick={toggleMobileMenu}/>
-              <GithubLogo/>
+              <GithubLogo onClick={toggleTheme}/>
               <MenuBell/>
             </Container>
 

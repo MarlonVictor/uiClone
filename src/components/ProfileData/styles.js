@@ -65,7 +65,7 @@ export const Row = styled.ul`
     }
     b {
         font-size: 14px;
-        color: var(--header);
+        color: var(--gray-dark);
         font-weight: 500;
     }
 `

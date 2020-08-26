@@ -10,19 +10,18 @@ import { LoadingWrapper, Container, Main, LeftSide, RightSide, Repos, CalendarHe
 
 const Profile = () => {
   const { username = 'MarlonVictor' } = useParams()
-  const [data, setData] = useState({})
+  const [data, setData] = useState()
 
   useEffect(() => {
     Promise.all([
       fetch(`https://api.github.com/users/${username}`),
       fetch(`https://api.github.com/users/${username}/repos`)
-
-    ]).then(async (responses) => {
+    ]).then(async responses => {
       const [userResponse, reposResponse] = responses
 
       if (userResponse.status === 404) {
-        setData({ error: 'User not found!' });
-        return;
+        setData({ error: 'User not found!' })
+        return
       }
 
       const user = await userResponse.json()
@@ -69,15 +68,15 @@ const Profile = () => {
       <Main>
         <LeftSide>
           <ProfileData 
-            username={data.user?.login}
-            name={data.user?.name}
-            avatarUrl={data.user?.avatar_url}
-            followers={data.user?.followers}
-            following={data.user?.following}
-            company={data.user?.company}
-            location={data.user?.location}
-            email={data.user?.email}
-            blog={data.user?.blog}
+            username={data.user.login}
+            name={data.user.name}
+            avatarUrl={data.user.avatar_url}
+            followers={data.user.followers}
+            following={data.user.following}
+            company={data.user.company}
+            location={data.user.location}
+            email={data.user.email}
+            blog={data.user.blog}
           />
         </LeftSide>
         
@@ -90,7 +89,7 @@ const Profile = () => {
             <h2>Random repos</h2>
 
             <div>
-              {data.repos?.map((item) => (
+              {data.repos.map((item) => (
                 <RepoCard
                   key={item.name}
                   username={item.owner.login}
