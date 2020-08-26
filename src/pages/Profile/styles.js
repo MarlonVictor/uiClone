@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { RiBookMarkLine } from 'react-icons/ri'
 
+export const LoadingWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    
+    margin: 20px auto;
+`
+
 export const Container = styled.div`
     padding: 16px 24px;
     overflow: hidden;
