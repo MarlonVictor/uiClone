@@ -28,6 +28,7 @@ export const themes = {
         typescript: '#2b7489',
         html: '#E34C26',
         css: '#563D7C',
+        python: '#3572A5',
         'other-language': '#ccc',
     },
     dark: {
@@ -58,6 +59,7 @@ export const themes = {
         typescript: '#2b7489',
         html: '#E34C26',
         css: '#563D7C',
+        python: '#3572A5',
         'other-language': '#ccc',
     },
 };

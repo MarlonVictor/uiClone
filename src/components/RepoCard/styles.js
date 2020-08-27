@@ -80,6 +80,9 @@ export const Botside = styled.div`
         &.css {
             background: var(--css);
         }
+        &.python {
+            background: var(--python);
+        }
     }
 `
 

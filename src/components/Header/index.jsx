@@ -55,8 +55,12 @@ const Header = ({ themeName, setThemeName }) => {
 
             {toggleMenu && 
               <Menu>
-                <SearchForm className="mobile">
-                  <input type="text" placeholder="Enter Username or Username/Repo..."/>
+                <SearchForm className="mobile" onSubmit={handleSubmit}>
+                  <input 
+                    placeholder="Enter Username or Username/Repo..."
+                    value={search}
+                    onChange={(e) => setSearch(e.currentTarget.value)}
+                  />
                 </SearchForm>
                 <Links className="mobile">
                   <p>Pull requests</p><hr/>
