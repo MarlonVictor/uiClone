@@ -40,9 +40,6 @@ $ yarn start
 ```
 * Vá para [http://localhost:3000](http://localhost:3000/) para ver o resultado.
 
-## Licença
-Este projeto está sob a licença MIT. Consulte a [LICENÇA](https://github.com/MarlonVictor/uiClone/blob/master/LICENSE) para obter detalhes.
-
 ___
 <p align="center">
   Feito com <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f49c.png" width="20px"> by Marlon Victor
